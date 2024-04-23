@@ -29,7 +29,6 @@ async fn scan(sender: Sender<u16>, ip: IpAddr, port: u16) {
     // formatting connection as IP:port
     match TcpStream::connect(format!("{}:{}", ip, port)).await {
         Ok(_) => {
-            println!(".");
             io::stdout().flush().unwrap();
             sender.send(port).unwrap();
         }
